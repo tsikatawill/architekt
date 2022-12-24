@@ -17,4 +17,13 @@ const Wrapper = styled("button", {
   "&:hover": {
     background: "$primaryHover",
   },
+
+  variants: {
+    bg: {
+      white: {
+        background: "White",
+        color: "$primary",
+      },
+    },
+  },
 });
