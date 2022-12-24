@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 export const Navlink = ({ children, ...props }) => {
   const { asPath } = useRouter();
 
-  console.log(asPath);
   return (
     <StyledLink {...props} active={asPath === props.href}>
       {children}
