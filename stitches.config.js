@@ -14,7 +14,8 @@ export const { styled } = createStitches({
       2: "16px",
       3: "18px",
       4: "20px",
-      5: "64px",
+      5: "24px",
+      6: "64px",
     },
     space: {
       1: "5px",
