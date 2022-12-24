@@ -1,6 +1,6 @@
 import { Container } from "./Container";
 import { Navlink } from "./Navbar/Navlink";
-import { ROUTES } from "./Navbar/Routes";
+import { ROUTES } from "./Navbar/routes";
 import React from "react";
 import { styled } from "../stitches.config";
 

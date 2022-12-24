@@ -4,7 +4,7 @@ import { Container } from "../Container";
 import Image from "next/image";
 import Link from "next/link";
 import { Navlink } from "./Navlink";
-import { ROUTES } from "./Routes";
+import { ROUTES } from "./routes";
 import { Sidebar } from "../Sidebar";
 import { styled } from "../../stitches.config";
 import { useState } from "react";
