@@ -58,10 +58,11 @@ const Wrapper = styled("nav", {
 });
 
 const NavItems = styled("ul", {
-  display: "flex",
-  listStyle: "none",
-  flexDirection: "column",
-  justifyContent: "space-between",
   alignItems: "center",
+  display: "flex",
+  flexDirection: "column",
+  gap: "$4",
+  justifyContent: "center",
+  listStyle: "none",
   minHeight: "80vh",
 });
