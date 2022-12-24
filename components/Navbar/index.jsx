@@ -17,7 +17,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav>
+    <Wrapper>
       <Container>
         <Inner>
           <Link href="/">
@@ -46,10 +46,15 @@ export const Navbar = () => {
           />
         </Inner>
       </Container>
-    </nav>
+    </Wrapper>
   );
 };
 
+const Wrapper = styled("nav", {
+  position: "sticky",
+  background: "white",
+  top: 0,
+});
 const Inner = styled("div", {
   display: "flex",
   justifyContent: "space-between",
