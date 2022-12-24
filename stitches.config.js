@@ -4,6 +4,7 @@ export const { styled } = createStitches({
   theme: {
     colors: {
       primary: "#333333",
+      primaryHover: "#222222",
       primaryLight: "#BDBDBD",
       lightGrey: "#F2F2F2",
       footer: "#2C2C2C",
