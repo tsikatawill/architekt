@@ -1,21 +1,15 @@
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { Button } from "../Button";
 import { Container } from "../Container";
 import Image from "next/image";
+import { carouselItems } from "./data";
 import gsap from "gsap/dist/gsap";
 import { styled } from "../../stitches.config";
 
 export const Carousel = () => {
   const [selected, setSelected] = useState(0);
-
-  const CarouselItems = [
-    {
-      title: "PROJECT NURTOWN",
-      image: "/images/hero.jpg",
-      link: "/projects/project-nurtown",
-    },
-  ];
 
   const titleTopRef = useRef();
   const titleBottomRef = useRef();
@@ -43,7 +37,7 @@ export const Carousel = () => {
   const handleSkip = (action) => {
     if (typeof action === "number") {
       setSelected((prev) => {
-        if (prev < testimonies.length - 1) {
+        if (prev < carouselItems.length - 1) {
           return action;
         } else {
           return 0;
@@ -51,7 +45,7 @@ export const Carousel = () => {
       });
     } else if (action === "forward") {
       setSelected((prev) => {
-        if (prev < testimonies.length - 1) {
+        if (prev < carouselItems.length - 1) {
           return prev + 1;
         } else {
           return 0;
@@ -60,7 +54,7 @@ export const Carousel = () => {
     } else if (action === "back") {
       setSelected((prev) => {
         if (prev === 0) {
-          return testimonies.length - 1;
+          return carouselItems.length - 1;
         } else {
           return prev - 1;
         }
@@ -70,6 +64,14 @@ export const Carousel = () => {
     }
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleSkip(selected + 1);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [selected]);
+
   return (
     <div>
       <Container>
@@ -77,24 +79,41 @@ export const Carousel = () => {
           <Left>
             <Title>
               <TitleTop ref={titleTopRef}>
-                {CarouselItems[selected].title.split(" ")[0]}
+                {carouselItems[selected].title.split(" ")[0]}
               </TitleTop>
               <TitleBottom ref={titleBottomRef}>
-                {CarouselItems[selected].title.split(" ")[1]}
+                {carouselItems[selected].title.split(" ")[1]}
               </TitleBottom>
             </Title>
+
+            <NavigationButtons>
+              <NavigationButton onClick={() => handleSkip("back")}>
+                <HiArrowLeft />
+              </NavigationButton>
+              <NavigationButton onClick={() => handleSkip("forward")}>
+                <HiArrowRight />
+              </NavigationButton>
+            </NavigationButtons>
+
+            <NavigationDisplay>
+              <span>{selected + 1}</span>
+              <span>/</span>
+              <span>{carouselItems.length}</span>
+            </NavigationDisplay>
           </Left>
 
           <ImageWrapper>
             <Image
-              src={CarouselItems[selected].image}
-              alt={CarouselItems[selected].title}
+              src={carouselItems[selected].image}
+              alt={carouselItems[selected].title}
               width="770"
               height="830"
               ref={imageRef}
             />
 
-            <StyledButton bg="white">sad</StyledButton>
+            <StyledButton bg="white">
+              Look at <HiArrowRight />
+            </StyledButton>
           </ImageWrapper>
         </Inner>
       </Container>
@@ -110,7 +129,9 @@ const Inner = styled("div", {
 });
 
 const Left = styled("div", {
-  //   flexShrink: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: "$4",
 });
 
 const ImageWrapper = styled("div", {
@@ -128,6 +149,10 @@ const StyledButton = styled(Button, {
   position: "absolute",
   bottom: 0,
   left: 0,
+  display: "flex",
+  gap: "$2",
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 const Title = styled("h1", {
@@ -145,4 +170,40 @@ const TitleBottom = styled("span", {
   display: "block",
   color: "$primary",
   fontWeight: "$bolder",
+});
+
+const NavigationButtons = styled("div", {
+  display: "flex",
+  gap: "$4",
+});
+
+const NavigationButton = styled("button", {
+  border: "1px solid $primaryLight",
+  background: "none",
+  height: 50,
+  width: 50,
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "$primaryLight",
+  transition: "all 0.2s ease",
+  fontSize: 20,
+  cursor: "pointer",
+
+  "&:hover": {
+    background: "$lightGrey",
+    color: "$primary",
+  },
+});
+
+const NavigationDisplay = styled("div", {
+  fontSize: "$5",
+  fontWeight: "$medium",
+  color: "$primaryLight",
+  display: "flex",
+  gap: "$3",
+
+  "& span": {
+    padding: "$2",
+  },
 });
