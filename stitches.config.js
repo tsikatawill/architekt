@@ -13,6 +13,8 @@ export const { styled } = createStitches({
       1: "12px",
       2: "16px",
       3: "18px",
+      4: "20px",
+      5: "64px",
     },
     space: {
       1: "5px",
@@ -33,6 +35,7 @@ export const { styled } = createStitches({
       medium: 400,
       regular: 500,
       bold: 600,
+      bolder: 700,
     },
   },
   utils: {
