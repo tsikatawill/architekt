@@ -18,7 +18,7 @@ export const Navbar = () => {
 
   return (
     <Wrapper>
-      <Container>
+      <Container css={{ width: "100%" }}>
         <Inner>
           <Link href="/">
             <Image src="/images/logo.svg" alt="logo" width="70" height="70" />
@@ -54,7 +54,12 @@ const Wrapper = styled("nav", {
   position: "sticky",
   background: "white",
   top: 0,
+  height: 60,
+  zIndex: "8",
+  display: "flex",
+  alignItems: "center",
 });
+
 const Inner = styled("div", {
   display: "flex",
   justifyContent: "space-between",

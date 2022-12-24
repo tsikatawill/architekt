@@ -1,5 +1,6 @@
 import { Container } from "../components/Container";
 import Head from "next/head";
+import { Hero } from "../components/Hero";
 
 export default function Home() {
   return (
@@ -12,14 +13,7 @@ export default function Home() {
       </Head>
 
       <header>
-        <Container>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus eius
-            perferendis recusandae dicta alias ut. Libero esse inventore
-            provident delectus amet pariatur laborum neque, placeat, quam sit
-            magni eos quae!
-          </p>
-        </Container>
+        <Hero />
       </header>
     </>
   );
