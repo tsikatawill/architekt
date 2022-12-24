@@ -61,7 +61,7 @@ const NavItems = styled("ul", {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
-  gap: "$4",
+  gap: "$8",
   justifyContent: "center",
   listStyle: "none",
   minHeight: "80vh",
