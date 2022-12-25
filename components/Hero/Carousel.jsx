@@ -1,38 +1,18 @@
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { click, propUp, scaleDown, sideSlide } from "../../motions";
+import { useEffect, useState } from "react";
 
 import { Button } from "../Button";
 import { Container } from "../Container";
 import Image from "next/image";
 import { carouselItems } from "./data";
-import gsap from "gsap/dist/gsap";
+import { motion } from "framer-motion";
 import { styled } from "../../stitches.config";
+import { useRouter } from "next/router";
 
 export const Carousel = () => {
   const [selected, setSelected] = useState(0);
-
-  const titleTopRef = useRef();
-  const titleBottomRef = useRef();
-  const imageRef = useRef();
-
-  useEffect(() => {
-    gsap.from(titleTopRef.current, {
-      y: "-100px",
-      duration: 0.5,
-      ease: "circ",
-    });
-    gsap.from(titleBottomRef.current, {
-      y: "100px",
-      duration: 0.5,
-      ease: "circ",
-    });
-    gsap.from(imageRef.current, {
-      scale: 1.2,
-      delay: 0.3,
-      duration: 1,
-      ease: "circ",
-    });
-  }, []);
+  const router = useRouter();
 
   const handleSkip = (action) => {
     if (typeof action === "number") {
@@ -75,47 +55,88 @@ export const Carousel = () => {
   return (
     <div>
       <Container>
-        <Inner>
-          <Left>
-            <Title>
-              <TitleTop ref={titleTopRef}>
-                {carouselItems[selected].title.split(" ")[0]}
-              </TitleTop>
-              <TitleBottom ref={titleBottomRef}>
-                {carouselItems[selected].title.split(" ")[1]}
-              </TitleBottom>
-            </Title>
+        {carouselItems.map((item, idx) => {
+          if (carouselItems.indexOf(item) === selected) {
+            return (
+              <Inner key={idx}>
+                <Left>
+                  <Title>
+                    <TitleTop
+                      variants={sideSlide()}
+                      initial="initial"
+                      whileInView="animate"
+                    >
+                      {item.title.split(" ")[0]}
+                    </TitleTop>
+                    <TitleBottom
+                      variants={sideSlide("right")}
+                      initial="initial"
+                      whileInView="animate"
+                    >
+                      {item.title.split(" ")[1]}
+                    </TitleBottom>
+                  </Title>
 
-            <NavigationButtons>
-              <NavigationButton onClick={() => handleSkip("back")}>
-                <HiArrowLeft />
-              </NavigationButton>
-              <NavigationButton onClick={() => handleSkip("forward")}>
-                <HiArrowRight />
-              </NavigationButton>
-            </NavigationButtons>
+                  <NavigationButtons>
+                    <NavigationButton
+                      variants={click}
+                      initial="initial"
+                      whileTap="animate"
+                      onClick={() => handleSkip("back")}
+                    >
+                      <HiArrowLeft />
+                    </NavigationButton>
+                    <NavigationButton
+                      variants={click}
+                      initial="initial"
+                      whileTap="animate"
+                      onClick={() => handleSkip("forward")}
+                    >
+                      <HiArrowRight />
+                    </NavigationButton>
+                  </NavigationButtons>
 
-            <NavigationDisplay>
-              <span>{selected + 1}</span>
-              <span>/</span>
-              <span>{carouselItems.length}</span>
-            </NavigationDisplay>
-          </Left>
+                  <NavigationDisplay>
+                    <NavigationIndicator
+                      variants={propUp}
+                      initial="initial"
+                      whileInView="animate"
+                    >
+                      {selected + 1}
+                    </NavigationIndicator>
+                    <NavigationIndicator>/</NavigationIndicator>
+                    <NavigationIndicator>
+                      {carouselItems.length}
+                    </NavigationIndicator>
+                  </NavigationDisplay>
+                </Left>
 
-          <ImageWrapper>
-            <Image
-              src={carouselItems[selected].image}
-              alt={carouselItems[selected].title}
-              width="770"
-              height="830"
-              ref={imageRef}
-            />
+                <ImageWrapper>
+                  <motion.div
+                    variants={scaleDown}
+                    initial="initial"
+                    whileInView="animate"
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width="770"
+                      height="830"
+                    />
+                  </motion.div>
 
-            <StyledButton bg="white">
-              Look at <HiArrowRight />
-            </StyledButton>
-          </ImageWrapper>
-        </Inner>
+                  <StyledButton
+                    bg="white"
+                    onClick={() => router.push(item.link)}
+                  >
+                    Look at
+                    <HiArrowRight />
+                  </StyledButton>
+                </ImageWrapper>
+              </Inner>
+            );
+          }
+        })}
       </Container>
     </div>
   );
@@ -124,6 +145,7 @@ export const Carousel = () => {
 const Inner = styled("div", {
   alignItems: "center",
   display: "flex",
+  flexWrap: "wrap",
   gap: "$5",
   justifyContent: "space-between",
 });
@@ -132,6 +154,7 @@ const Left = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$4",
+  py: "$4",
 });
 
 const ImageWrapper = styled("div", {
@@ -160,13 +183,13 @@ const Title = styled("h1", {
   lineHeight: 0.9,
 });
 
-const TitleTop = styled("span", {
+const TitleTop = styled(motion.span, {
   display: "block",
   color: "$primaryLight",
   fontWeight: "$light",
 });
 
-const TitleBottom = styled("span", {
+const TitleBottom = styled(motion.span, {
   display: "block",
   color: "$primary",
   fontWeight: "$bolder",
@@ -177,7 +200,7 @@ const NavigationButtons = styled("div", {
   gap: "$4",
 });
 
-const NavigationButton = styled("button", {
+const NavigationButton = styled(motion.button, {
   border: "1px solid $primaryLight",
   background: "none",
   height: 50,
@@ -191,8 +214,8 @@ const NavigationButton = styled("button", {
   cursor: "pointer",
 
   "&:hover": {
-    background: "$lightGrey",
     color: "$primary",
+    border: "1px solid $primary",
   },
 });
 
@@ -202,8 +225,8 @@ const NavigationDisplay = styled("div", {
   color: "$primaryLight",
   display: "flex",
   gap: "$3",
+});
 
-  "& span": {
-    padding: "$2",
-  },
+const NavigationIndicator = styled(motion.span, {
+  padding: "$2",
 });

@@ -1,10 +1,14 @@
+import { click } from "../motions";
+import { motion } from "framer-motion";
 import { styled } from "../stitches.config";
 
 export const Button = ({ children, ...props }) => (
-  <Wrapper {...props}>{children}</Wrapper>
+  <Wrapper {...props} variants={click} initial="initial" whileTap="animate">
+    {children}
+  </Wrapper>
 );
 
-const Wrapper = styled("button", {
+const Wrapper = styled(motion.button, {
   background: "$primary",
   border: "none",
   color: "White",
@@ -23,6 +27,10 @@ const Wrapper = styled("button", {
       white: {
         background: "White",
         color: "$primary",
+
+        "&:hover": {
+          background: "$lightGrey",
+        },
       },
     },
   },
