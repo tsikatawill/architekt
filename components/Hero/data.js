@@ -6,12 +6,17 @@ export const carouselItems = [
   },
   {
     title: "INTERESTING PROJECT",
-    image: "/images/about-1.jpg",
+    image: "/images/new.jpg",
+    link: "/projects/project-nurtown",
+  },
+  {
+    title: "ANOTHER PROJECT",
+    image: "/images/new-3.jpg",
     link: "/projects/project-nurtown",
   },
   {
     title: "LAST ONE",
-    image: "/images/project-4.jpg",
+    image: "/images/new-2.jpg",
     link: "/projects/project-nurtown",
   },
 ];
