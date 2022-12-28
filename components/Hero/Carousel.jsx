@@ -111,19 +111,14 @@ export const Carousel = () => {
                   </NavigationDisplay>
                 </Left>
 
-                <ImageWrapper>
-                  <motion.div
+                <ImageBlock>
+                  <ImageWrapper
                     variants={scaleDown}
                     initial="initial"
                     whileInView="animate"
                   >
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width="770"
-                      height="830"
-                    />
-                  </motion.div>
+                    <Image src={item.image} alt={item.title} fill />
+                  </ImageWrapper>
 
                   <StyledButton
                     bg="white"
@@ -132,7 +127,7 @@ export const Carousel = () => {
                     Look at
                     <HiArrowRight />
                   </StyledButton>
-                </ImageWrapper>
+                </ImageBlock>
               </Inner>
             );
           }
@@ -143,11 +138,16 @@ export const Carousel = () => {
 };
 
 const Inner = styled("div", {
-  alignItems: "center",
+  alignItems: "flex-start",
   display: "flex",
-  flexWrap: "wrap",
   gap: "$5",
+  flexDirection: "column",
   justifyContent: "space-between",
+
+  "@sm": {
+    flexDirection: "row",
+    alignItems: "center",
+  },
 });
 
 const Left = styled("div", {
@@ -157,15 +157,26 @@ const Left = styled("div", {
   py: "$4",
 });
 
-const ImageWrapper = styled("div", {
+const ImageBlock = styled("div", {
   position: "relative",
   overflow: "hidden",
-  height: 830,
-  width: 770,
+  height: 400,
+  width: "100%",
+
+  "@sm": {
+    height: 830,
+    width: 770,
+  },
 
   "& img": {
     objectFit: "cover",
   },
+});
+
+const ImageWrapper = styled("div", {
+  position: "relative",
+  height: "100%",
+  width: "100%",
 });
 
 const StyledButton = styled(Button, {
@@ -179,7 +190,7 @@ const StyledButton = styled(Button, {
 });
 
 const Title = styled("h1", {
-  fontSize: "64px",
+  fontSize: "$6",
   lineHeight: 0.9,
 });
 
