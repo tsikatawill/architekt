@@ -5,17 +5,17 @@ export const carouselItems = [
     link: "/projects/project-nurtown",
   },
   {
-    title: "INTERESTING PROJECT",
+    title: "PROJECT SKYLINE",
     image: "/images/new.jpg",
     link: "/projects/project-nurtown",
   },
   {
-    title: "ANOTHER PROJECT",
+    title: "PROJECT SPIRAL",
     image: "/images/new-3.jpg",
     link: "/projects/project-nurtown",
   },
   {
-    title: "LAST ONE",
+    title: "PROJECT NEUTRAL",
     image: "/images/new-2.jpg",
     link: "/projects/project-nurtown",
   },

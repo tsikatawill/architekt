@@ -190,8 +190,12 @@ const StyledButton = styled(Button, {
 });
 
 const Title = styled("h1", {
-  fontSize: "$6",
   lineHeight: 0.9,
+  fontSize: "$6",
+
+  "@sm": {
+    fontSize: "clamp($4, 5vw, $6)",
+  },
 });
 
 const TitleTop = styled(motion.span, {
