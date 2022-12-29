@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import { ButtonImage } from "./ButtonImage";
 import { Container } from "./Container";
 import { HiArrowRight } from "react-icons/hi";
 import Image from "next/image";
@@ -72,10 +73,11 @@ export const Projects = () => {
         </BottomGrid>
 
         <Right>
-          <StyledButton onClick={() => router.push("/projects")}>
-            <span>All projects</span>
-            <HiArrowRight />
-          </StyledButton>
+          <ButtonImage
+            text="All projects"
+            icon={<HiArrowRight />}
+            onClick={() => router.push("/projects")}
+          />
         </Right>
       </Container>
     </section>
@@ -161,11 +163,4 @@ const Right = styled("div", {
   "@sm": {
     justifyContent: "flex-end",
   },
-});
-
-const StyledButton = styled(Button, {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "$2",
 });
