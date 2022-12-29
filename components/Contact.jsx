@@ -60,7 +60,7 @@ const Form = styled("form", {
   width: "100%",
   flexShrink: 0,
   alignSelf: "center",
-  fontSize: "$4",
+  fontSize: "$3",
 
   "@sm": {
     alignSelf: "flex-start",
