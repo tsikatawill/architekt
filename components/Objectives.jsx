@@ -70,6 +70,7 @@ const Number = styled(motion.p, {
   fontWeight: 900,
   fontSize: 200,
   color: "$lightGrey",
+  lineHeight: "200px",
 });
 
 const ObjectiveText = styled(motion.p, {
