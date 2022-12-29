@@ -42,7 +42,7 @@ export const Projects = () => {
           <ProjectCard>
             <Image src="/images/project-3.jpg" alt="s" fill />
             <CardInner>
-              <CardTitle>Squarous</CardTitle>
+              <CardTitle>Squaro</CardTitle>
               <CardLink>
                 <span>Go to</span>
                 <HiArrowRight />
