@@ -13,6 +13,16 @@ export const scaleDown = {
   animate: { scale: 1, transition: { duration: 1.5, delay: 0.3 } },
 };
 
+export const propY = (direction = "top", duration = 1) => ({
+  initial: {
+    y: direction === "down" ? -50 : 50,
+  },
+  animate: {
+    y: 0,
+    transition: { duration, ease: "easeOut" },
+  },
+});
+
 export const propUp = {
   initial: { y: 15 },
   animate: { y: 0, transition: { duration: 0.5 } },
