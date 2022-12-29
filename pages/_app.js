@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import { AnimatePresence, motion } from "framer-motion";
 
+import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { styled } from "../stitches.config";
 import { useRouter } from "next/router";
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </Wrapper>
       </AnimatePresence>
+      <Footer />
     </>
   );
 }
