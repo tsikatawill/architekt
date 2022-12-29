@@ -4,7 +4,7 @@ export const Input = styled("input", {
   background: "$lightGrey",
   border: "none",
   cursor: "pointer",
-  fontSize: "$4",
+  fontSize: "$3",
   height: 40,
   margin: 0,
   outline: "none",
