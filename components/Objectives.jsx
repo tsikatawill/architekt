@@ -12,9 +12,7 @@ export const Objectives = () => {
         <SectionHeader>Our objectives</SectionHeader>
         <Inner>
           <ObjectiveCard>
-            <Number variants={propY()} initial="initial" whileInView="animate">
-              1
-            </Number>
+            <Number>1</Number>
             <ObjectiveText
               variants={sideSlide("left", 1)}
               initial="initial"
@@ -26,9 +24,7 @@ export const Objectives = () => {
             </ObjectiveText>
           </ObjectiveCard>
           <ObjectiveCard>
-            <Number variants={propY()} initial="initial" whileInView="animate">
-              2
-            </Number>
+            <Number>2</Number>
             <ObjectiveText
               variants={sideSlide()}
               initial="initial"
@@ -62,7 +58,7 @@ const ObjectiveCard = styled("div", {
   flexShrink: 0,
   maxWidth: 550,
   display: "flex",
-  gap: "$2",
+  gap: "$4",
   alignItems: "center",
 });
 
@@ -71,10 +67,12 @@ const Number = styled(motion.p, {
   fontSize: 200,
   color: "$lightGrey",
   lineHeight: "200px",
+  width: 100,
+  flexShrink: 0,
+  textAlign: "right",
 });
 
 const ObjectiveText = styled(motion.p, {
   fontWeight: "$medium",
-  fontSize: "$4",
-  lineHeight: "36px",
+  fontSize: "$3",
 });
