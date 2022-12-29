@@ -1,8 +1,8 @@
 import { About } from "../components/About";
-import { Container } from "../components/Container";
 import Head from "next/head";
 import { Hero } from "../components/Hero";
 import { Objectives } from "../components/Objectives";
+import { Projects } from "../components/Projects";
 
 export default function Home() {
   return (
@@ -18,6 +18,7 @@ export default function Home() {
         <Hero />
         {/* <About /> */}
         <Objectives />
+        <Projects />
       </header>
     </>
   );
