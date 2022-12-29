@@ -22,12 +22,7 @@ export default function Home() {
         <Objectives />
         <Projects />
         <Contact />
-        <Space />
       </header>
     </>
   );
 }
-
-const Space = styled("div", {
-  height: "50vh",
-});
