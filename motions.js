@@ -32,3 +32,13 @@ export const click = {
   initial: { scale: 1 },
   animate: { scale: 0.95, transition: { duration: 0.05 } },
 };
+
+export const GalleryImageAnim = {
+  initial: { opacity: 0, scale: 0.5 },
+  animate: { opacity: 1, scale: 1, transition: { ease: "easeIn" } },
+  exit: {
+    opacity: 0,
+    scale: 0.5,
+    transition: { duration: 0.15 },
+  },
+};

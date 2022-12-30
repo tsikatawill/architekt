@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <>
+    <Outer>
       <Navbar />
       <AnimatePresence mode="wait">
         <Wrapper
@@ -28,8 +28,14 @@ export default function App({ Component, pageProps }) {
         </Wrapper>
       </AnimatePresence>
       <Footer />
-    </>
+    </Outer>
   );
 }
 
-const Wrapper = styled(motion.div, {});
+const Outer = styled("div", {
+  minHeight: "100vh",
+  display: "grid",
+  gridTemplateRows: "auto 1fr auto",
+});
+
+const Wrapper = styled(motion.div);
