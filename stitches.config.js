@@ -8,6 +8,7 @@ export const { styled } = createStitches({
       primaryLight: "#BDBDBD",
       lightGrey: "#F2F2F2",
       footer: "#2C2C2C",
+      greyHover: "#d4dee0",
     },
     fontSizes: {
       1: "12px",
