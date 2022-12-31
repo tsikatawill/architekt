@@ -113,6 +113,7 @@ const Wrapper = styled("footer", {
   py: "$5",
   background: "$primary",
   color: "White",
+  marginTop: "$7",
 });
 
 const Inner = styled("div", {

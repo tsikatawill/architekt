@@ -12,10 +12,6 @@ export const ROUTES = [
     href: "/projects",
   },
   {
-    name: "Certificates",
-    href: "/certificates",
-  },
-  {
     name: "Contact",
     href: "/contact",
   },

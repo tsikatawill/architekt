@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../Button";
 import { Container } from "../Container";
 import Image from "next/image";
+import { NavigationButton } from "../NavigationButton";
 import { carouselItems } from "./data";
 import { motion } from "framer-motion";
 import { styled } from "../../stitches.config";
@@ -78,20 +79,10 @@ export const Carousel = () => {
                   </Title>
 
                   <NavigationButtons>
-                    <NavigationButton
-                      variants={click}
-                      initial="initial"
-                      whileTap="animate"
-                      onClick={() => handleSkip("back")}
-                    >
+                    <NavigationButton onClick={() => handleSkip("back")}>
                       <HiArrowLeft />
                     </NavigationButton>
-                    <NavigationButton
-                      variants={click}
-                      initial="initial"
-                      whileTap="animate"
-                      onClick={() => handleSkip("forward")}
-                    >
+                    <NavigationButton onClick={() => handleSkip("forward")}>
                       <HiArrowRight />
                     </NavigationButton>
                   </NavigationButtons>
@@ -117,7 +108,12 @@ export const Carousel = () => {
                     initial="initial"
                     whileInView="animate"
                   >
-                    <Image src={item.image} alt={item.title} fill />
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                   </ImageWrapper>
 
                   <StyledButton
@@ -173,7 +169,7 @@ const ImageBlock = styled("div", {
   },
 });
 
-const ImageWrapper = styled("div", {
+const ImageWrapper = styled(motion.div, {
   position: "relative",
   height: "100%",
   width: "100%",
@@ -210,38 +206,20 @@ const TitleBottom = styled(motion.span, {
   fontWeight: "$bolder",
 });
 
-const NavigationButtons = styled("div", {
+export const NavigationButtons = styled("div", {
   display: "flex",
   gap: "$4",
 });
 
-const NavigationButton = styled(motion.button, {
-  border: "1px solid $primaryLight",
-  background: "none",
-  height: 50,
-  width: 50,
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "$primaryLight",
-  transition: "all 0.2s ease",
-  fontSize: 20,
-  cursor: "pointer",
-
-  "&:hover": {
-    color: "$primary",
-    border: "1px solid $primary",
-  },
-});
-
-const NavigationDisplay = styled("div", {
+export const NavigationDisplay = styled("div", {
   fontSize: "$5",
   fontWeight: "$medium",
   color: "$primaryLight",
   display: "flex",
+  alignItems: "center",
   gap: "$3",
 });
 
-const NavigationIndicator = styled(motion.span, {
+export const NavigationIndicator = styled(motion.span, {
   padding: "$2",
 });
