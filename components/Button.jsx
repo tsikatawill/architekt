@@ -28,11 +28,11 @@ const Wrapper = styled(motion.button, {
   variants: {
     bg: {
       white: {
-        background: "White",
         color: "$primary",
+        background: "$lightGrey",
 
         "&:hover": {
-          background: "$lightGrey",
+          background: "$greyHover",
         },
       },
     },

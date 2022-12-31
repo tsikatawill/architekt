@@ -1,4 +1,6 @@
+import { ButtonImage } from "./ButtonImage";
 import { Container } from "./Container";
+import { HiArrowRight } from "react-icons/hi";
 import Image from "next/image";
 import { SectionHeader } from "./SectionHeader";
 import { sideSlide } from "../motions";
@@ -9,37 +11,36 @@ export const About = () => {
     <section>
       <Container>
         <Inner>
-          <Leftee>
-            <Image
-              src="/images/about-3.jpg"
-              fill
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
-              alt="about-3.jpg"
-            />
-          </Leftee>
-          {/* <Left>
+          <Left>
             <LeftStack>
-              <ImageWrapper bigger>
+              <ImageWrapper>
                 <Image
                   src="/images/about-1.jpg"
-                  fill
                   alt="about-1.jpg"
-                  sizes="(max-width: 768px) 80vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                  height="265"
+                  width="270"
                 />
               </ImageWrapper>
               <ImageWrapper>
-                <Image src="/images/about-2.jpg" fill alt="about-2.jpg" />
+                <Image
+                  height="140"
+                  width="270"
+                  src="/images/about-2.jpg"
+                  alt="about-2.jpg"
+                />
               </ImageWrapper>
             </LeftStack>
-            
-            <ImageWrapper biggest>
-              <Image src="/images/about-3.jpg" fill alt="about-3.jpg" />
-            </ImageWrapper>
-          </Left> */}
+            <RightStack>
+              <ImageWrapper>
+                <Image
+                  src="/images/about-3.jpg"
+                  alt="about-3.jpg"
+                  height="345"
+                  width="270"
+                />
+              </ImageWrapper>
+            </RightStack>
+          </Left>
 
           <Right>
             <SectionHeader
@@ -57,6 +58,7 @@ export const About = () => {
               survived not only five centuries, but also the leap into
               electronic typesetting, remaining essentially unchanged.
             </p>
+            <ButtonImage bg="white" text="Learn more" icon={<HiArrowRight />} />
           </Right>
         </Inner>
       </Container>
@@ -65,70 +67,50 @@ export const About = () => {
 };
 
 const Inner = styled("div", {
-  display: "flex",
-  justifyContent: "center",
-  gap: "$5",
-  flexDirection: "column-reverse",
+  display: "grid",
+  gridTemplateColumns: "1fr",
+  gap: "$4",
 
   "@sm": {
-    flexDirection: "row",
+    gridTemplateColumns: "3fr 2fr",
   },
 });
 
 const Left = styled("div", {
-  display: "flex",
+  display: "none",
   alignItems: "center",
-  gap: "$5",
-  flexWrap: "wrap",
-  flexShrink: 0,
-  justifyContent: "center",
+  gap: "$4",
 
   "@sm": {
-    justifyContent: "flex-start",
+    display: "flex",
   },
 });
 
 const LeftStack = styled("div", {
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  gap: "$5",
+  gap: "$4",
+  flexShrink: 0,
+});
+
+const RightStack = styled("div", {
+  flexShrink: 0,
+  width: "fit-content",
 });
 
 const ImageWrapper = styled("div", {
   position: "relative",
-  width: 270,
-  height: 140,
-  background: "Tomato",
-
-  variants: {
-    bigger: {
-      true: {
-        height: 265,
-        background: "Dodgerblue",
-      },
-    },
-    biggest: {
-      true: {
-        height: 345,
-        background: "$primaryLight",
-      },
-    },
-  },
+  height: "fit-content",
+  width: "100%",
 });
 
 const Right = styled("div", {
-  maxWidth: 400,
-  py: "$5",
-  alignSelf: "center",
+  display: "grid",
+  justifyItems: "start",
+  alignContent: "start",
+  gap: "$3",
 
-  "@sm": {
-    alignSelf: "flex-start",
+  "& p": {
+    lineHeight: "25px",
   },
-});
-
-const Leftee = styled("div", {
-  position: "relative",
-  // width: 300,
-  height: 300,
 });
