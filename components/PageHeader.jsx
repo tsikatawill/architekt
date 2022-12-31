@@ -22,7 +22,7 @@ export const PageHeader = ({ title = "Page title" }) => {
 const Wrapper = styled("h1", {
   lineHeight: 1,
   py: 20,
-  fontSize: "$6",
+  fontSize: "40px",
   gap: "$2",
   textTransform: "uppercase",
 
