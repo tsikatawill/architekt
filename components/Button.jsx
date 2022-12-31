@@ -1,9 +1,12 @@
-import { click } from "../motions";
 import { motion } from "framer-motion";
 import { styled } from "../stitches.config";
 
 export const Button = ({ children, ...props }) => (
-  <Wrapper {...props} variants={click} initial="initial" whileTap="animate">
+  <Wrapper
+    {...props}
+    initial={{ scale: 1 }}
+    whileTap={{ scale: 0.95, transition: { duration: 0.05 } }}
+  >
     {children}
   </Wrapper>
 );

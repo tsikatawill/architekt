@@ -17,7 +17,12 @@ export const Projects = () => {
 
         <TopGrid>
           <ProjectCard>
-            <Image src="/images/project-1.jpg" alt="s" fill />
+            <Image
+              src="/images/project-1.jpg"
+              alt="s"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             <CardInner>
               <CardTitle>Aquarious</CardTitle>
               <CardLink>
@@ -28,7 +33,12 @@ export const Projects = () => {
           </ProjectCard>
 
           <ProjectCard>
-            <Image src="/images/project-2.jpg" alt="s" fill />
+            <Image
+              src="/images/project-2.jpg"
+              alt="s"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             <CardInner>
               <CardTitle>Peacockus</CardTitle>
               <CardLink>
@@ -41,7 +51,12 @@ export const Projects = () => {
 
         <BottomGrid>
           <ProjectCard>
-            <Image src="/images/project-3.jpg" alt="s" fill />
+            <Image
+              src="/images/project-3.jpg"
+              alt="s"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             <CardInner>
               <CardTitle>Squaro</CardTitle>
               <CardLink>
@@ -51,7 +66,12 @@ export const Projects = () => {
             </CardInner>
           </ProjectCard>
           <ProjectCard>
-            <Image src="/images/project-4.jpg" alt="s" fill />
+            <Image
+              src="/images/project-4.jpg"
+              alt="s"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             <CardInner>
               <CardTitle>Apartmentous</CardTitle>
               <CardLink>
@@ -61,7 +81,12 @@ export const Projects = () => {
             </CardInner>
           </ProjectCard>
           <ProjectCard>
-            <Image src="/images/project-5.jpg" alt="s" fill />
+            <Image
+              src="/images/project-5.jpg"
+              alt="s"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             <CardInner>
               <CardTitle>Radius</CardTitle>
               <CardLink>

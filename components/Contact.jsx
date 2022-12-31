@@ -36,7 +36,12 @@ export const Contact = () => {
           </Form>
 
           <ImageWrapper>
-            <Image src="/images/new-2.jpg" fill alt="image.jpg" />
+            <Image
+              src="/images/new-2.jpg"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              alt="image.jpg"
+            />
           </ImageWrapper>
         </Flex>
       </Container>

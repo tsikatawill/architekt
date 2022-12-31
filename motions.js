@@ -30,7 +30,8 @@ export const propUp = {
 
 export const click = {
   initial: { scale: 1 },
-  animate: { scale: 0.95, transition: { duration: 0.05 } },
+  animate: { scale: 0.9 },
+  transition: { duration: 0.05 },
 };
 
 export const GalleryImageAnim = {
