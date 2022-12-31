@@ -134,7 +134,6 @@ export const Carousel = () => {
 };
 
 const Inner = styled("div", {
-  alignItems: "flex-start",
   display: "flex",
   gap: "$5",
   flexDirection: "column",
@@ -161,7 +160,7 @@ const ImageBlock = styled("div", {
 
   "@sm": {
     height: 830,
-    width: 770,
+    width: "max(70%, 600px)",
   },
 
   "& img": {

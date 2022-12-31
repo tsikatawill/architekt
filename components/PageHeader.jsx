@@ -1,10 +1,20 @@
+import { motion } from "framer-motion";
+import { sideSlide } from "../motions";
 import { styled } from "../stitches.config";
 
 export const PageHeader = ({ title = "Page title" }) => {
   return (
     <Wrapper>
-      <Top>{title.split(" ")[0]}</Top>
-      <Bottom>{title.split(" ")[1]}</Bottom>
+      <Top variants={sideSlide()} initial="initial" whileInView="animate">
+        {title.split(" ")[0]}
+      </Top>
+      <Bottom
+        variants={sideSlide("right")}
+        initial="initial"
+        whileInView="animate"
+      >
+        {title.split(" ")[1]}
+      </Bottom>
     </Wrapper>
   );
 };
@@ -21,13 +31,13 @@ const Wrapper = styled("h1", {
   },
 });
 
-const Top = styled("span", {
+const Top = styled(motion.span, {
   display: "block",
   color: "$primaryLight",
   fontWeight: "$light",
 });
 
-const Bottom = styled("span", {
+const Bottom = styled(motion.span, {
   display: "block",
   color: "$primary",
   fontWeight: "$bolder",
