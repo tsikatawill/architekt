@@ -70,6 +70,8 @@ const Inner = styled("div", {
   display: "grid",
   gridTemplateColumns: "1fr",
   gap: "$4",
+  background: "#fbfbfb",
+  padding: "$4",
 
   "@sm": {
     gridTemplateColumns: "3fr 2fr",
@@ -80,6 +82,7 @@ const Left = styled("div", {
   display: "none",
   alignItems: "center",
   gap: "$4",
+  justifyContent: "center",
 
   "@sm": {
     display: "flex",
